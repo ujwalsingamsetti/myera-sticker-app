@@ -22,5 +22,5 @@ Code Quality: Fixed ESLint errors related to undefined variables and missing hoo
 Error Handling: Thoroughly tested all features (adding, dragging, rotating, deleting, undo/redo, downloading) to ensure reliability.
 
 ## Live Deployment Link 
-https://myera-sticker-app-dun.vercel.app/
-Link of myera-sticker-app: [myera](https://myera-sticker-app-dun.vercel.app/).
+
+Link : [myera-sticker-app](https://myera-sticker-app-dun.vercel.app/).
