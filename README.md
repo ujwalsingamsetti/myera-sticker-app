@@ -19,7 +19,7 @@ Responsive Design: Adapts to mobile devices (screens <700px) by stacking buttons
 To run the app locally:
 
 ## Clone the repository:
-git clone https://github.com/your-username/myera-sticker-app.git
+git clone https://github.com/ujwalsingamsetti/myera-sticker-app.git
 cd myera-sticker-app
 
 
@@ -44,25 +44,6 @@ CSS: Flexbox and media queries for responsive layout and polished styling.
 Git/GitHub: Version control with clean commit messages for collaboration.
 Vercel: Deployment platform for hosting the live app.
 
-## Project Structure
-myera-sticker-app/
-├── public/
-│   ├── index.html           # Main HTML file
-│   ├── stickers/
-│   │   ├── sticker1.png     # Star sticker (50x50)
-│   │   ├── sticker2.png     # Heart sticker (50x50)
-│   │   ├── sticker3.png     # Circle sticker (50x50)
-├── src/
-│   ├── components/
-│   │   ├── Canvas.js perspective
-│   │   ├── StickerButton.js
-│   ├── App.js               # Main app component with state management
-│   ├── App.css              # Styles for layout and responsiveness
-│   ├── index.js             # React entry point
-├── README.md                # Project documentation
-├── package.json             # Dependencies and scripts
-├── .gitignore               # Ignore node_modules, build/, etc.
-├── demo/                    # Optional folder for demo GIF
 
 ## Development Notes
 
