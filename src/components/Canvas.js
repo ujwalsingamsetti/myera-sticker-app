@@ -7,8 +7,9 @@ function Canvas({ stickers, setStickers }) {
 
   // Function to handle dragging
   const handleDragEnd = (e, id) => {
-    const newX = e.target.x();
-    const newY = e.target.y();
+    const gridSize = 40;
+    const newX = Math.round(e.target.x() / gridSize) * gridSize;
+    const newY = Math.round(e.target.y() / gridSize) * gridSize;
     setStickers(stickers.map(sticker =>
       sticker.id === id ? { ...sticker, x: newX, y: newY } : sticker
     ));

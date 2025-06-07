@@ -9,13 +9,18 @@ function App() {
 
   // Function to add a new sticker
   const addSticker = (imageSrc) => {
+    const gridSize = 40;
+    const x = Math.round(50 / gridSize) * gridSize; // Snap to nearest 40
+    const y = Math.round(50 / gridSize) * gridSize;
     setStickers([...stickers, {
-      id: Date.now(), // Unique ID using timestamp
+      id: Date.now(),
       src: imageSrc,
-      x: 50, // Default position
-      y: 50,
+      x,
+      y,
     }]);
   };
+
+  
 
   return (
     <div className="app">
