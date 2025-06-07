@@ -1,4 +1,4 @@
-MyEra Sticker App
+# MyEra Sticker App
 A feature-rich, interactive web application built with React and react-konva that allows users to create and customize a 600x400 pixel canvas with draggable, rotatable stickers. This app demonstrates advanced React state management, canvas interactivity, responsive design, and a polished user experience, built as part of the MyEra Frontend Internship application.
 Deployed Link
 Try the app live at: https://myera-sticker-app-dun.vercel.app/
@@ -15,19 +15,19 @@ Clear Canvas: A button to remove all stickers at once, with undo support for eas
 Download as PNG: Save the canvas as a PNG file with all stickers included, using Konva’s toDataURL method.
 Responsive Design: Adapts to mobile devices (screens <700px) by stacking buttons and controls vertically, ensuring usability across devices.
 
-Setup and Running
+# Setup and Running
 To run the app locally:
 
-Clone the repository:
+## Clone the repository:
 git clone https://github.com/your-username/myera-sticker-app.git
 cd myera-sticker-app
 
 
-Install dependencies:
+## Install dependencies:
 npm install
 
 
-Start the development server:
+## Start the development server:
 npm start
 
 The app will open in your browser at http://localhost:3000.
@@ -44,7 +44,7 @@ CSS: Flexbox and media queries for responsive layout and polished styling.
 Git/GitHub: Version control with clean commit messages for collaboration.
 Vercel: Deployment platform for hosting the live app.
 
-Project Structure
+## Project Structure
 myera-sticker-app/
 ├── public/
 │   ├── index.html           # Main HTML file
@@ -64,7 +64,7 @@ myera-sticker-app/
 ├── .gitignore               # Ignore node_modules, build/, etc.
 ├── demo/                    # Optional folder for demo GIF
 
-Development Notes
+## Development Notes
 
 Code Quality: Resolved ESLint errors (no-undef for past, exhaustive-deps for useEffect) to ensure clean, maintainable code.
 Error Handling: Thoroughly tested all features to prevent runtime errors, ensuring a robust user experience.
@@ -79,13 +79,12 @@ State Management: Centralized state with a history system (past/future arrays) s
 Responsive Design: CSS media queries ensure compatibility across devices, with room for additional UI elements.
 Image Handling: The public/stickers/ folder and use-image hook allow easy addition of new stickers without code changes.
 
-Future Enhancements:
-
+##Future Enhancements:
+ 
 Sticker Scaling: Add a slider to resize stickers dynamically.
 Local Storage: Save canvas state to the browser for persistence between sessions.
 Animations: Use Konva’s animation API for smooth rotation or transitions.
 Sticker Collision Detection: Prevent new stickers from overlapping existing ones.
 Backend Integration: Save canvas layouts to a server via a REST API.
 
-Contact
-For feedback or questions, reach out via [your-email@example.com] or create an issue on the GitHub repository. I’m excited to continue improving this app based on your input!
+
