@@ -2,22 +2,35 @@ import React, { useRef } from 'react';
 import { Stage, Layer, Image } from 'react-konva';
 import useImage from 'use-image';
 
-function Canvas({ stickers, setStickers }) {
+function Canvas({ stickers, setStickers, past, setPast, setFuture }) {
   const stageRef = useRef(null);
 
-  // Function to handle dragging
+  // Handle dragging with grid snapping
   const handleDragEnd = (e, id) => {
     const gridSize = 40;
     const newX = Math.round(e.target.x() / gridSize) * gridSize;
     const newY = Math.round(e.target.y() / gridSize) * gridSize;
+    setPast([...past, stickers]);
     setStickers(stickers.map(sticker =>
       sticker.id === id ? { ...sticker, x: newX, y: newY } : sticker
     ));
+    setFuture([]);
   };
 
-  // Function to handle double-click deletion
+  // Handle double-click deletion
   const handleDblClick = (id) => {
+    setPast([...past, stickers]);
     setStickers(stickers.filter(sticker => sticker.id !== id));
+    setFuture([]);
+  };
+
+  // Handle rotation
+  const handleRotate = (id) => {
+    setPast([...past, stickers]);
+    setStickers(stickers.map(sticker =>
+      sticker.id === id ? { ...sticker, rotation: (sticker.rotation + 90) % 360 } : sticker
+    ));
+    setFuture([]);
   };
 
   // Download canvas as PNG
@@ -30,8 +43,8 @@ function Canvas({ stickers, setStickers }) {
   };
 
   return (
-    <div>
-      <Stage width={600} height={400} ref={stageRef} style={{ border: '1px solid black' }}>
+    <div className="canvas-container">
+      <Stage width={600} height={400} ref={stageRef}>
         <Layer>
           {stickers.map(sticker => (
             <Sticker
@@ -39,19 +52,18 @@ function Canvas({ stickers, setStickers }) {
               sticker={sticker}
               onDragEnd={handleDragEnd}
               onDblClick={handleDblClick}
+              onRotate={handleRotate}
             />
           ))}
         </Layer>
       </Stage>
-      <button onClick={handleDownload} style={{ marginTop: '10px' }}>
-        Download Canvas
-      </button>
+      <button onClick={handleDownload}>Download Canvas</button>
     </div>
   );
 }
 
 // Component to render a single sticker
-function Sticker({ sticker, onDragEnd, onDblClick }) {
+function Sticker({ sticker, onDragEnd, onDblClick, onRotate }) {
   const [image] = useImage(sticker.src);
   return (
     <Image
@@ -60,9 +72,11 @@ function Sticker({ sticker, onDragEnd, onDblClick }) {
       y={sticker.y}
       width={50}
       height={50}
+      rotation={sticker.rotation}
       draggable
       onDragEnd={(e) => onDragEnd(e, sticker.id)}
       onDblClick={() => onDblClick(sticker.id)}
+      onClick={() => onRotate(sticker.id)}
     />
   );
 }
